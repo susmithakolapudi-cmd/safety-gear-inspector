@@ -79,7 +79,7 @@ export async function POST(req: Request) {
     const failed = results.length - successful;
     const totalDetections = results
       .filter(r => r.status === 'fulfilled' && r.value.success)
-      .reduce((sum, r) => sum + (r.value as any).detections, 0);
+      .reduce((sum, r) => sum + (r as any).value.detections, 0);
 
     return Response.json({
       summary: {
