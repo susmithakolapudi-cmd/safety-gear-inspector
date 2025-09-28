@@ -15,7 +15,13 @@ function colorFor(label: string) {
   return "#8b5cf6"; // bright purple fallback
 }
 
-function Chip({ text, className, style }: { text: string; className?: string; style?: React.CSSProperties }) {
+interface ChipProps {
+  text: string;
+  className?: string;
+  style?: React.CSSProperties;
+}
+
+function Chip({ text, className, style }: ChipProps) {
   return (
     <span 
       className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs text-white font-medium ${className || 'bg-cyan-500'}`}
