@@ -1,5 +1,5 @@
 "use client";
-import { useRef, useState, useMemo } from "react";
+import React, { useRef, useState, useMemo } from "react";
 import Dropzone from "@/components/Dropzone";
 import Header from "@/components/Header";
 import BoundingCanvas from "@/components/BoundingCanvas";
