@@ -1,6 +1,6 @@
 "use client";
 import { useCallback } from "react";
-import { useAppStore } from "@/lib/store";
+import { useAppStore } from "../lib/store";
 
 export default function Dropzone() {
   const { setFile } = useAppStore();

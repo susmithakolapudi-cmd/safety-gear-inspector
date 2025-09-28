@@ -1,10 +1,10 @@
 "use client";
 import React, { useRef, useState, useMemo } from "react";
-import Dropzone from "@/components/Dropzone";
-import Header from "@/components/Header";
-import BoundingCanvas from "@/components/BoundingCanvas";
-import { useAppStore } from "@/lib/store";
-import type { RFResponse } from "@/lib/types";
+import Dropzone from "../components/Dropzone";
+import Header from "../components/Header";
+import BoundingCanvas from "../components/BoundingCanvas";
+import { useAppStore } from "../lib/store";
+import type { RFResponse } from "../lib/types";
 
 function colorFor(label: string) {
   const l = label.toLowerCase();
@@ -108,7 +108,7 @@ export default function Page() {
                 className="block w-full h-auto select-none"
                 onLoad={() => setBoxes([])}
               />
-              <BoundingCanvas imgRef={imgRef} boxes={boxes} />
+              <BoundingCanvas imgRef={imgRef as React.RefObject<HTMLImageElement>} boxes={boxes} />
             </div>
           )}
 
@@ -165,7 +165,7 @@ export default function Page() {
               <div className="text-sm text-neutral-500">No detections yet. Upload a photo and run **Detect Safety Gear**.</div>
             ) : (
               <ul className="text-sm space-y-1 max-h-64 overflow-auto">
-                {boxes.map((b, i) => (
+                {boxes.map((b: any, i: number) => (
                   <li key={i} className="flex items-center justify-between">
                     <span className="capitalize">{b.class.replaceAll("-", " ")}</span>
                     <span className="opacity-70">{(b.confidence * 100).toFixed(1)}%</span>

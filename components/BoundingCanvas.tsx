@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useRef } from "react";
-import type { BoundingBox } from "@/lib/types";
+import type { BoundingBox } from "../lib/types";
 
 interface BoundingCanvasProps {
   imgRef: React.RefObject<HTMLImageElement>;
